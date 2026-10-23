@@ -23,6 +23,7 @@ class TestCalculator(unittest.TestCase):
         calc = Calculator()
         result = calc.div(3, 2)
         self.assertEqual(result, 1.5)
+        self.assertIsInstance(result, float)
 
     def test_modulo_negative_dividend(self):
         calc = Calculator()
