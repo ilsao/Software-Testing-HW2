@@ -33,6 +33,10 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Cannot modulo by zero"):
             calc.modulo(7, 0)
 
+    def test_power_zero_to_zero(self):
+        calc = Calculator()
+        self.assertEqual(calc.power(0, 0), 1)
+
     def test_div_zero(self):
         calc = Calculator()
         with self.assertRaisesRegex(ValueError, "Cannot divide by zero"):
