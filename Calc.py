@@ -14,7 +14,7 @@ class Calculator:
         return a % b
 
     def power(self, a, b):
-        return 1
+        return a ** b
 
     def div(self, a, b):
         if b == 0:
