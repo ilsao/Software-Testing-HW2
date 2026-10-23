@@ -14,6 +14,8 @@ class Calculator:
         return a % b
 
     def power(self, a, b):
+        if a == 0 and b < 0:
+            raise ValueError("Cannot raise zero to a negative power")
         return a ** b
 
     def div(self, a, b):
