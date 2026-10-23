@@ -7,5 +7,25 @@ class TestCalculator(unittest.TestCase):
         result = calc.add(2, 3)
         self.assertEqual(result, 5)  # Expect 2 + 3 = 5
 
+    def test_sub(self):
+        calc = Calculator()
+        result = calc.sub(3, 2)
+        self.assertEqual(result, 1)
+        
+    def test_mul(self):
+        calc = Calculator()
+        result = calc.mul(2, 3)
+        self.assertEqual(result, 6)
+        
+    def test_div(self):
+        calc = Calculator()
+        result = calc.div(3, 2)
+        self.assertEqual(result, 1.5)
+
+    def test_div_zero(self):
+        calc = Calculator()
+        with self.assertRaisesRegex(ValueError, "Cannot divide by zero"):
+            calc.div(3, 0)
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      
+      - name: create virtual environment
+        run: python3 -m venv .venv
+
+      - name: run tests
+        run: .venv/bin/python CalcTest.py
