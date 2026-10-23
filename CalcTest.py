@@ -28,6 +28,11 @@ class TestCalculator(unittest.TestCase):
         calc = Calculator()
         self.assertEqual(calc.modulo(-7, 3), 2)
 
+    def test_modulo_zero(self):
+        calc = Calculator()
+        with self.assertRaisesRegex(ValueError, "Cannot modulo by zero"):
+            calc.modulo(7, 0)
+
     def test_div_zero(self):
         calc = Calculator()
         with self.assertRaisesRegex(ValueError, "Cannot divide by zero"):
