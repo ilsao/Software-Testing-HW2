@@ -14,10 +14,21 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.12
+          python-version: '3.12'
       
       - name: create virtual environment
         run: python3 -m venv .venv
+
+      - name: install dependencies
+        run: .venv/bin/python -m pip install -r requirements.txt
+
+      - name: report coverage
+        run: |
+          .venv/bin/python -m coverage run CalcTest.py
+          .venv/bin/python -m coverage report
+
+      - name: ruff
+        run: .venv/bin/python -m ruff check .
 
       - name: run tests
         run: .venv/bin/python CalcTest.py
