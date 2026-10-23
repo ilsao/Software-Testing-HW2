@@ -41,6 +41,11 @@ class TestCalculator(unittest.TestCase):
         calc = Calculator()
         self.assertEqual(calc.power(2, -3), 0.125)
 
+    def test_power_zero_base_negative_exponent(self):
+        calc = Calculator()
+        with self.assertRaisesRegex(ValueError, "Cannot raise zero to a negative power"):
+            calc.power(0, -1)
+
     def test_div_zero(self):
         calc = Calculator()
         with self.assertRaisesRegex(ValueError, "Cannot divide by zero"):
